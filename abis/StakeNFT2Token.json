@@ -1,0 +1,743 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            }
+        ],
+        "name": "AcceptNFTOwnership",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_stakeCount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_stakeTime",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_rewardAddress",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_rewardTime",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_rewardAmountPerTime",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_rewardAccount",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_maxStakeCount",
+                "type": "uint256"
+            }
+        ],
+        "name": "AddPoolEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_sid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_beginTime",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "_tokenIds",
+                "type": "uint256[]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_reward",
+                "type": "uint256"
+            }
+        ],
+        "name": "ForceWithdrawEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_sid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "_tokenIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "HarvestNFTBackEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_sid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_beginTime",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "_tokenIds",
+                "type": "uint256[]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_reward",
+                "type": "uint256"
+            }
+        ],
+        "name": "HarvestTokenEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "NominateNFTPotentialOwner",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "_tokenIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "StakeEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "TransferNFTOwnership",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            }
+        ],
+        "name": "acceptNFTOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_stakeCount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_stakeTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_rewardAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardAmountPerTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_rewardAccount",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_maxStakeCount",
+                "type": "uint256"
+            }
+        ],
+        "name": "addPool",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_sid",
+                "type": "uint256"
+            }
+        ],
+        "name": "forceWithdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getPoolLength",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_userAddr",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_time",
+                "type": "uint256"
+            }
+        ],
+        "name": "getUserStakeHis",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_userAddr",
+                "type": "address"
+            }
+        ],
+        "name": "getUserStakeHisCnt",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_sid",
+                "type": "uint256"
+            }
+        ],
+        "name": "harvest",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "nominateNFTPotentialOwner",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "onERC721Received",
+        "outputs": [
+            {
+                "internalType": "bytes4",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "nftAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "stakeCount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "stakeTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "rewardAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "rewardTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "rewardAmountPerTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "rewardAccount",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "maxStakeCount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "closed",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "poolStakes",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "beginTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalTime",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_tokenIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "stake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_nftAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferNFTOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_maxStakeCount",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateMaxStakeCount",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_rewardAccount",
+                "type": "address"
+            }
+        ],
+        "name": "updateRewardAccount",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardAmountPerTime",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateRewardAmountPerTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_pid",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardTime",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateRewardTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "userStakes",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

@@ -1,0 +1,32 @@
+enum StakeType {
+  Stake,
+}
+
+type StakePoolCount @entity {
+  id: ID!
+  count: BigInt!
+}
+
+type StakePool @entity {
+  id: ID!
+  tokenAddress: Bytes!
+  stakeAmount: BigInt!
+  nftAddress: Bytes!
+}
+
+type UserStakeHistory @entity {
+  id: ID!
+  user: Bytes!
+  contract: Bytes!
+  type: StakeType!
+  stakePool: StakePool!
+  forceWithdrawed: Boolean!
+  harvested: Boolean!
+  txhash: Bytes!
+  beginTime: BigInt!
+}
+
+type UserStakeHistories @entity {
+  id: ID!
+  histories: [BigInt!]!
+}
